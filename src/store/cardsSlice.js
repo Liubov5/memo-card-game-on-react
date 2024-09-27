@@ -13,18 +13,7 @@ export const fetchImages = createAsyncThunk("cards/fetchImages", async()=>{
            }
        }
    );
-   
    return data;
-    // return [
-    //             {image:"https://avatars.mds.yandex.net/i?id=2414e1a11e8ea018c07319af1c31604f93fa0baa-10165663-images-thumbs&n=13", active: false , matched:false},
-    //             {image:"https://avatars.mds.yandex.net/i?id=2414e1a11e8ea018c07319af1c31604f93fa0baa-10165663-images-thumbs&n=13", active: false , matched:false},
-    //             {image:"https://avatars.mds.yandex.net/i?id=2414e1a11e8ea018c07319af1c31604f93fa0baa-10165663-images-thumbs&n=13", active: false , matched:false},
-    //             {image:"https://avatars.mds.yandex.net/i?id=2414e1a11e8ea018c07319af1c31604f93fa0baa-10165663-images-thumbs&n=13", active: false , matched:false},
-    //             {image:"https://avatars.mds.yandex.net/i?id=2414e1a11e8ea018c07319af1c31604f93fa0baa-10165663-images-thumbs&n=13", active: false , matched:false},
-    //             {image:"https://avatars.mds.yandex.net/i?id=2414e1a11e8ea018c07319af1c31604f93fa0baa-10165663-images-thumbs&n=13", active: false , matched:false},
-    //             {image:"https://avatars.mds.yandex.net/i?id=2414e1a11e8ea018c07319af1c31604f93fa0baa-10165663-images-thumbs&n=13", active: false , matched:false},
-    //             {image:"https://avatars.mds.yandex.net/i?id=2414e1a11e8ea018c07319af1c31604f93fa0baa-10165663-images-thumbs&n=13", active: false , matched:false},
-    //         ]
 });
 
 export const cardsSlice = createSlice({
@@ -78,14 +67,6 @@ export const cardsSlice = createSlice({
                 item.matched = false;
                 return item;
             })
-            //let eight_items = state.allitems.slice(0,8);
-            // let eight_items = payload;
-           
-            // eight_items.map((item)=>{
-            //      item.id = nanoid();
-            //      return item;
-            // })
-            //eight_items = [...eight_items, id: nanoid()];
             state.gameItems = [...state.items, ...state.items].sort(() => Math.random() - 0.5);
         })
         builder.addCase(fetchImages.rejected, (state, action)=>{

@@ -5,6 +5,7 @@ import { fetchImages, resetState, resetStatus, setCurrentCard, setMatched, setPr
 import Card from './components/Card';
 import { IconRefresh } from '@tabler/icons-react';
 
+
 const App = () => {
   const dispatch = useDispatch();
   const cards = useSelector(({cards})=>cards);
@@ -19,9 +20,7 @@ const App = () => {
     if(cards.previousCard && cards.currentCard) { //если оба заполнены
       if(cards.previousCard.id === cards.currentCard.id) { //если оба похожи
         setTimeout(()=>{
-          dispatch(setMatched(cards.previousCard.id)); //устанавливаем метч
-          // dispatch(resetStatus({previousId:cards.previousCard.id, currentId:cards.currentCard.id})) //убираем статусы
-          
+          dispatch(setMatched(cards.previousCard.id)); //устанавливаем метч  
         }, 1000)
       }else{ //no match, должны закрыться обратно
         setTimeout(()=>{
@@ -55,7 +54,7 @@ const App = () => {
         <section className='reset'>
             <IconRefresh onClick={resetGame}/>
         </section>
-        {cards.gameItems.map((item, index)=><Card key={index} src={item.image} index={index} handleClick={handleClick} status={item.status} matched={item.matched}/>)}
+        {cards.gameItems.map((item, index)=><Card  key={index} src={item.image} index={index} handleClick={handleClick} status={item.status} matched={item.matched}/>)}
       </div>
      
     </>

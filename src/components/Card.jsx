@@ -1,6 +1,7 @@
 import { IconQuestionMark } from '@tabler/icons-react'
 import React from 'react'
 
+
 const Card = ({index, src, handleClick, status, matched}) => {
   let statusClass = status ? ' active' :''
   let matchedClass = matched ? ' matched' : ''
