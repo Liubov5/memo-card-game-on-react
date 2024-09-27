@@ -1,4 +1,5 @@
-<h1>Memo-card Game on React, React-redux-toolkit</h1>
+<h1>Memo-card Game on React, React-redux-toolkit</h1> 
+<h2><a href="https://codesandbox.io/p/github/Liubov5/memo-card-game-on-react/main?import=true" target="_blank">Link to deploy</a></h2>
 <h2>I used <a href="https://api-ninjas.com/api/emoji" target="_blank">Emoji API</a> for generating images</h2>
 <h2>Also, used redux-toolkit </h2>
 <h3>Here is how look slice</h3>
