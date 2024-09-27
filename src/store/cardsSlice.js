@@ -10,7 +10,6 @@ export const fetchImages = createAsyncThunk("cards/fetchImages", async()=>{
            },
            params: {
                 group:'food_drink',
-                count:6
            }
        }
    );
@@ -34,7 +33,8 @@ export const cardsSlice = createSlice({
         items:[],
         gameItems:[],
         previousCard:null,
-        currentCard:null
+        currentCard:null,
+        final_count:0,
     },
     reducers:{
         setStatus:(state, { payload })=>{
@@ -49,6 +49,7 @@ export const cardsSlice = createSlice({
             payload === null ? state.currentCard = null : state.currentCard = state.gameItems[payload];
         },
         setMatched:(state, {payload})=>{
+            state.final_count++;
             state.gameItems.map((item)=>{
                 if(item.id === payload) {
                     item.matched = true;
@@ -56,12 +57,17 @@ export const cardsSlice = createSlice({
             })
         },
         resetStatus:(state, {payload})=>{
+            console.log(payload)
             state.gameItems.map((item)=>{
-                if(item.id === payload) {
+                if(item.id === payload.previousId || item.id === payload.currentId) {
                     item.status = false;
                 }
             })
-        }    
+        },
+        resetState: (state, {payload})=>{
+            state.final_count = 0;
+        },
+         
     },
     extraReducers:(builder)=>{
         builder.addCase(fetchImages.fulfilled, (state, {payload})=>{
@@ -88,6 +94,6 @@ export const cardsSlice = createSlice({
     }
 });
 
-export const {setStatus, setCurrentCard, setPreviousCard, setMatched, resetStatus} = cardsSlice.actions;
+export const {setStatus, setCurrentCard, setPreviousCard, setMatched, resetStatus, resetState} = cardsSlice.actions;
 
 export default cardsSlice.reducer;

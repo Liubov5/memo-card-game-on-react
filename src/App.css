@@ -16,13 +16,21 @@ h1{
     display: grid;
     grid-template-columns: auto auto auto auto;
     gap:5px;
-    background-color: red;
+}
+.reset{
+    position: absolute;
+    right: 30px;
+    top:30px;
+    cursor: pointer;
+}
+.reset svg{
+    transform: scale(3);
 }
 .card {
     background-color: transparent;
     width: 200px;
     height: 200px;
-    border: 1px solid #f1f1f1;
+   
     perspective: 1000px;
 }
 .card__inner{
@@ -69,13 +77,22 @@ h1{
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     animation-delay: 1s;
+    pointer-events: none;
+    animation-timing-function: ease-in-out;
+    
 }
+/* .deleted{
+    display: none;
+} */
 @keyframes hideMatched {
     from {
      opacity: 1;
+     transform: scale(2);
     }
     to {
       opacity: 0;
+      transform: scale(1);
+      
     }
 }
 
