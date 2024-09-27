@@ -30,7 +30,6 @@ h1{
     background-color: transparent;
     width: 200px;
     height: 200px;
-   
     perspective: 1000px;
 }
 .card__inner{
@@ -81,9 +80,7 @@ h1{
     animation-timing-function: ease-in-out;
     
 }
-/* .deleted{
-    display: none;
-} */
+
 @keyframes hideMatched {
     from {
      opacity: 1;
@@ -96,56 +93,9 @@ h1{
     }
 }
 
-/* .card{
-    cursor: pointer;
-    background-color: white;
-    width: 150px;
-    height: 170px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform .7s;
-    border-radius: 10px;
-    transform-style: preserve-3d;
-}
-.card img, .card svg{
-    width: 70%;
-    position: absolute;
-    backface-visibility: hidden;
-    pointer-events: none;
-
-}
-.card svg{
-    width: 100px;
-    height: 100px;
-    opacity:  .3;
-}
-.card.matched {
-    transform: rotateY(180deg);
-} */
 button{
     border: none;
     color: black;
     background-color: white;
     cursor: pointer;
-}
-/* button.start-game{
-    text-transform: uppercase;
-    font-weight: 800;
-    padding: 1.5rem 2rem;
-    letter-spacing: 2px;
-    font-size: 25px;
-    border-radius: 10px;
-} */
-button.reset{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 80px;
-    width: 80px;
-    position: fixed;
-    top:1rem;
-    right: 1rem;
-    border-radius: 100%;
 }
