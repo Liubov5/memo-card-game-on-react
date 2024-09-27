@@ -1,38 +1,134 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;800&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif; 
+    height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1{
+    font-size: 4rem;
+    color: white;
+   margin-bottom: 4rem;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.container{
+    max-width: fit-content;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap:5px;
+    background-color: red;
+}
+.card {
+    background-color: transparent;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #f1f1f1;
+    perspective: 1000px;
+}
+.card__inner{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.card__inner--front, .card__inner--back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
+.card__image{
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.card__inner--front {
+   
+    transform: rotateY(180deg);
   }
-  to {
-    transform: rotate(360deg);
-  }
+.card__inner--back{
+    background-color: dodgerblue;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card__inner--back svg{
+    transform: scale(3);
+}
+
+.active{
+    transform: rotateY(180deg);
+}
+.matched {
+    animation: hideMatched .5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+}
+@keyframes hideMatched {
+    from {
+     opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+}
+
+/* .card{
+    cursor: pointer;
+    background-color: white;
+    width: 150px;
+    height: 170px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .7s;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+}
+.card img, .card svg{
+    width: 70%;
+    position: absolute;
+    backface-visibility: hidden;
+    pointer-events: none;
+
+}
+.card svg{
+    width: 100px;
+    height: 100px;
+    opacity:  .3;
+}
+.card.matched {
+    transform: rotateY(180deg);
+} */
+button{
+    border: none;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+/* button.start-game{
+    text-transform: uppercase;
+    font-weight: 800;
+    padding: 1.5rem 2rem;
+    letter-spacing: 2px;
+    font-size: 25px;
+    border-radius: 10px;
+} */
+button.reset{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    width: 80px;
+    position: fixed;
+    top:1rem;
+    right: 1rem;
+    border-radius: 100%;
 }
